@@ -7,7 +7,7 @@
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item, i) in comments" :key="item.add_time">
                 <div class="cmt-title">第{{i+1}}楼&nbsp;&nbsp;用户：{{item.user_name}}&nbsp;&nbsp;发表时间：{{item.add_time | dateFormat}}</div>
-                <div class="cmt-body">{{item.content === "" ? "此用户很懒": item.content}}</div>
+                <div class="cmt-body">{{item.content === "undefined" || item.content === "" ? "此用户很懒": item.content}}</div>
             </div>
         </div>
         <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button>
@@ -34,7 +34,6 @@
                     if(result.status === 200){
                         // 拼接上一页的评论数据，防止加载更多时覆盖前面的评论
                         this.comments = this.comments.concat(result.body.message);
-                        //console.log(this.commnets);
                     }else{
                         Toast('评论获取失败');
                     }
