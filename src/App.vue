@@ -28,8 +28,11 @@
     </div>
 </template>
 <script></script>
-<style lang="css" scoped>
+<style lang="scss" scoped>
     .app-container{
+        .mint-header{
+            z-index: 99;
+        }
         padding-top: 40px;
         padding-bottom: 50px;
         overflow-x: hidden;

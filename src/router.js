@@ -7,6 +7,9 @@ import CartContainer from "./components/tabbar/CartContainer.vue";
 import SearchContainer from "./components/tabbar/SearchContainer.vue";
 import NewsListContainer from "./components/news/NewsList.vue";
 import NewsInfoContainer from "./components/news/NewsInfo.vue";
+import PhotoListContainer from "./components/photos/PhotoList.vue";
+import PhotoInfoContainer from "./components/photos/PhotoInfo.vue";
+import GoodsListContainer from "./components/goods/GoodsList.vue";
 // 2.创建路由对象
 var router = new VueRouter({
     // 配置路由
@@ -17,7 +20,10 @@ var router = new VueRouter({
         {path: "/cart", component: CartContainer},
         {path: "/search", component: SearchContainer},
         {path: "/home/newslist", component: NewsListContainer},
-        {path: "/newslist/newsinfo/:id", component: NewsInfoContainer},
+        {path: "/home/newsinfo/:id", component: NewsInfoContainer},
+        {path: "/home/photos", component: PhotoListContainer},
+        {path: "/home/photoinfo/:id", component: PhotoInfoContainer},
+        {path: "/home/goodslist", component: GoodsListContainer},
     ],
     linkActiveClass: "mui-active",
     linkExactActiveClass: ""
