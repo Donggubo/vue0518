@@ -12,10 +12,10 @@ module.exports = {
     },
     devServer: {
         //contentBase: path.join(__dirname, "/src"),
-        port:8080,
+        /*port:8080,
         host:'localhost',
         open: true,
-        hot: true
+        hot: true*/
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

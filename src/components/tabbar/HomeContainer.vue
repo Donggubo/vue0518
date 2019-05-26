@@ -1,10 +1,7 @@
 <template>
     <div>
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in lunbotuList" :key="item.id">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-        </mt-swipe>
+        <!--轮播图区域-->
+        <swiper :lunbotuList="lunbotuList"></swiper>
         <!--9宫格-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newslist">
@@ -29,13 +26,15 @@
     </div>
 </template>
 <script>
+    // 导入轮播图组件
+    import swiper from "../subcomponents/Swiper.vue";
     //引入Tost
     import { Toast } from 'mint-ui';
     // 使用vue-resouce发起请求
     export default {
         data(){
             return {
-                lunbotuList: null
+                lunbotuList: []
             }
         },
         created() {
@@ -51,28 +50,13 @@
                     }
                 });
             }
+        },
+        components: {
+            swiper
         }
     }
 </script>
 <style lang="scss" scoped>
-    .mint-swipe{
-        .mint-swipe-item{
-            &:nth-child(1){
-                background-color: lightpink;
-            }
-            &:nth-child(2){
-                background-color: chartreuse;
-            }
-            &:nth-child(3){
-                background-color: cyan;
-            }
-        }
-        height: 200px;
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
     /*设置9宫格的样式*/
     .mui-grid-view.mui-grid-9{
         background-color: #ffffff;
