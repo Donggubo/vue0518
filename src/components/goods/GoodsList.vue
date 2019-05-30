@@ -52,7 +52,7 @@
                 this.$http.get("api/getgoods?pageindex="+this.pageIndex).then(result => {
                     if(result.body.status === 0){
                         this.goodslist = this.goodslist.concat(result.body.message);
-                        console.log(this.goodslist);
+                        // console.log(this.goodslist);
                     }else {
                         Toast('商品获取失败');
                     }
@@ -66,7 +66,7 @@
             },
             // 使用js的形式进行路由导航
             goodsInfo(id){
-                console.log(this);
+                //console.log(this);
                 this.$router.push({ name: 'goodsinfo', params: { id }});
             }
         }

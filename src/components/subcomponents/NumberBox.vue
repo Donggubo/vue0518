@@ -23,7 +23,7 @@
         // 监听父组件传递的库存情况
         watch: {
             max: function (newVal, oldVal) {
-                console.log("==="+newVal);
+                // console.log("==="+newVal);
                 mui(".mui-numbox").numbox().setOption('max',newVal)
             }
         }

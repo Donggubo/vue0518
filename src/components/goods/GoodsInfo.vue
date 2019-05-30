@@ -15,7 +15,7 @@
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
                     <p class="price">
-                        市场价：<del>￥{{goodsInfo.sell_price}}</del>&nbsp;&nbsp;销售价： <span class="now_price">￥{{goodsInfo.market_price}}</span>
+                        市场价：<del>￥{{goodsInfo.market_price}}</del>&nbsp;&nbsp;销售价： <span class="now_price">￥{{goodsInfo.sell_price}}</span>
                     </p>
                     <p>购买数量： <numberbox @getcount="getSelectedCount" :max="goodsInfo.stock_quantity"></numberbox></p>
                     <p>
@@ -82,7 +82,8 @@
             getGoodsInfo(){
                 this.$http.get("api/goods/getinfo/"+this.id).then(result => {
                     if(result.body.status === 0){
-                        this.goodsInfo = result.body.message[0]
+                        this.goodsInfo = result.body.message[0];
+                        // console.log(this.goodsInfo);
                     }else{
                         Toast('商品信息获取失败');
                     }
@@ -97,8 +98,18 @@
                 this.$router.push({ name: 'goodscomment', params: { id }});
             },
             // 小球动画函数
+            // 加入购物车
             addToCart(){
                 this.flag = !this.flag;
+                // day11--定义购物车存储方式
+                var goodsInfo = {
+                    id: this.id,
+                    price: this.goodsInfo.sell_price,
+                    count: this.selectedCount,
+                    selected: true
+                };
+                // 调用store的方法将购物车数据存放到store中
+                this.$store.commit("addToShopcart", goodsInfo);
             },
             beforeEnter(el){
                 // 起始位置
@@ -123,9 +134,9 @@
                 this.flag = !this.flag;
             },
             // 购买数量
-            getSelectedCount(count){
+            getSelectedCount(count){// count是父组件将方法传递给子组件，子组件调用后将参数传递过来
                 this.selectedCount = count;
-                console.log(this.selectedCount);
+                // console.log(this.selectedCount);
             }
         },
         // 注册轮播图组件
