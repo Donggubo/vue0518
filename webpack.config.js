@@ -46,7 +46,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            // 修改vue被导入时的路径，配置后在main.js中即可import Vue from "vue";，如果不配置则需要填写完整路径import Vue from "../node_modules/dis/vue/vue.js"
+            // 修改vue被导入时的路径，配置后在main.js中即可import Vue from "vue";，
+            // 如果不配置则需要填写完整路径import Vue from "../node_modules/dis/vue/vue.js";
             "vue$": "vue/dist/vue.js"
         }
     }

@@ -13,7 +13,7 @@
          props: ["max"],
         // 初始化
         mounted() {
-            mui(".mui-numbox").numbox()
+            mui(".mui-numbox").numbox();
         },
         methods: {
             countChanged(){
